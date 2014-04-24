@@ -8,7 +8,12 @@ angular.module('myApp.controllers', [])
     $scope.interest_rate = 0.04125;
     $scope.down_payment_percent = 20;
     $scope.down_payment_amount = $scope.price * $scope.down_payment_percent / 100;
+    $scope.term = 30;
     $scope.locked = false;
+
+    $scope.payment_count = function() {
+      return $scope.term * 12;
+    }
 
     $scope.loan_amount = function() {
       return $scope.price - $scope.down_payment_amount;
@@ -16,7 +21,7 @@ angular.module('myApp.controllers', [])
 
     $scope.monthly_payment = function() {
       var monthly_interest_rate = $scope.interest_rate / 12;
-      var magic = Math.pow(1 + monthly_interest_rate, 360);
+      var magic = Math.pow(1 + monthly_interest_rate, $scope.payment_count());
       var numerator = monthly_interest_rate * magic;
       var denominator = magic - 1;
 
