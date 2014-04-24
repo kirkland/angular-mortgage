@@ -1,0 +1,27 @@
+<div>
+  <p>
+    <label>Price</label>
+    <input ng-model="price" />
+  </p>
+
+  <p>
+    <label>Down Payment Percent</label>
+    <input ng-model="down_payment_percent" />
+  </p>
+
+  <p>
+    <label>Down Payment Amount</label>
+    <input ng-model="down_payment_amount" />
+  </p>
+
+  <p>
+    <label>Interest Rate</label>
+    <input ng-model="interest_rate" />
+  </p>
+
+  <p>
+    Loan Amount: {{loan_amount() }}
+    <br />
+    Monthly Payment: {{ monthly_payment() }}
+  </p>
+</div>
